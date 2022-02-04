@@ -31,6 +31,11 @@ public class BookDetailActivity extends AppCompatActivity {
         // Follow using a Toolbar guide to set the Toolbar as the ActionBar.
         // Change activity title to reflect the book title by referring to the Configuring The ActionBar guide.
         // (Bonus) Get additional book information like publisher and publish_year from the Books API and display in details view.
+
+
+
+
+
     }
 
 
