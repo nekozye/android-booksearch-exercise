@@ -1,5 +1,6 @@
 package com.codepath.android.booksearch.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,6 +24,7 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -70,6 +72,10 @@ public class BookListActivity extends AppCompatActivity {
                 //TODO: Do the activity
 
 
+                Book bookInQuestion = abooks.get(position);
+                Log.i("BookLoad",bookInQuestion.getTitle());
+
+                launchBookDetailActivity(bookInQuestion);
 
                 // Create Intent to start BookDetailActivity
                 // Get Book at the given position
@@ -176,5 +182,16 @@ public class BookListActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void launchBookDetailActivity(Book book){
+        Intent i = new Intent(BookListActivity.this, BookDetailActivity.class);
+
+
+        //Data packing using parcels
+        i.putExtra("parcel", Parcels.wrap(book));
+
+
+        startActivity(i);
     }
 }

@@ -31,14 +31,18 @@ ext {
     recyclerViewVersion = '1.2.1'
     annotationProcessorVersion = '1.1.0'
     asyncHttpClientVersion = '2.1.1'
+    parcelerVersion = '1.1.12'
 }
 
 dependencies {
+    implementation "org.parceler:parceler-api:$parcelerVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "com.codepath.libraries:asynchttpclient:$asyncHttpClientVersion"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
+
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+    annotationProcessor "org.parceler:parceler:$parcelerVersion"
     annotationProcessor "androidx.annotation:annotation:$annotationProcessorVersion"
 }
