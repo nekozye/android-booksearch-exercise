@@ -33,10 +33,7 @@ public class BookDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
-        //Toolbar setups
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
 
 
@@ -50,8 +47,7 @@ public class BookDetailActivity extends AppCompatActivity {
 
         book = (Book) Parcels.unwrap(getIntent().getParcelableExtra("parcel"));
 
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setTitle(book.getTitle());
+
 
         Log.i("BookRecieve","Loaded:"+book.getTitle());
 
@@ -69,7 +65,11 @@ public class BookDetailActivity extends AppCompatActivity {
         // (Bonus) Get additional book information like publisher and publish_year from the Books API and display in details view.
 
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setTitle(book.getTitle());
 
 
     }
