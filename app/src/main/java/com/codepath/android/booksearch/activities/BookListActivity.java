@@ -36,8 +36,7 @@ public class BookListActivity extends AppCompatActivity {
     private BookAdapter bookAdapter;
     private BookClient client;
     private ArrayList<Book> abooks;
-
-
+    private MenuItem miActionProgressItem;
 
 
     @Override
@@ -115,6 +114,7 @@ public class BookListActivity extends AppCompatActivity {
                             abooks.add(book); // add book through the adapter
                         }
                         bookAdapter.notifyDataSetChanged();
+                        hideProgressBar();
                     }
                 } catch (JSONException e) {
                     // Invalid JSON format, show appropriate error.
@@ -151,10 +151,13 @@ public class BookListActivity extends AppCompatActivity {
 
                 //perform search
 
+                showProgressBar();
+
                 fetchBooks(query);
 
-
                 searchview.clearFocus();
+
+
                 return true;
             }
 
@@ -167,6 +170,23 @@ public class BookListActivity extends AppCompatActivity {
         // Checkpoint #7 Show Progress Bar
         // see https://guides.codepath.org/android/Handling-ProgressBars#progress-within-actionbar
         return super.onCreateOptionsMenu(menu);
+    }
+    
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+        
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+        
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+
+    public void showProgressBar() {
+        miActionProgressItem.setVisible(true);
+    }
+
+    public void hideProgressBar() {
+        miActionProgressItem.setVisible(false);
     }
 
     @Override
